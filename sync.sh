@@ -14,6 +14,6 @@ done
 
 while inotifywait -r -e modify,create,delete,move "$SOURCE"; do
   echo "Change detected. Syncing..."
-  rsync -avh --delete --no-owner --no-group "$SOURCE/" "$DEST/"
+  rsync -avh --delete --no-owner --no-group --exclude-from="$EXCLUDE_FILE" "$SOURCE/" "$DEST/"
   echo "Sync done at $(date)"
 done
