@@ -1,0 +1,12 @@
+services:
+  folder-sync:
+    build:
+      context: ./
+
+    env_file:
+      - .env
+    container_name: backup-everything
+    volumes:
+      - ${SOURCE_PATH}:/data/source # Your local ~/docker folder
+      - ${DESTINATION_PATH}:/data/destination # SSD mount path
+    restart: always
