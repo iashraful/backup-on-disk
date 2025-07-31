@@ -9,4 +9,5 @@ services:
     volumes:
       - ${SOURCE_PATH}:/data/source # Your local ~/docker folder
       - ${DESTINATION_PATH}:/data/destination # SSD mount path
+      - ${EXCLUDE_FILE}:/data/exclude_patterns.txt # Exclude patterns file
     restart: always
